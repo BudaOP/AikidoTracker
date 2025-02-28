@@ -72,6 +72,11 @@
                         <goals>
                             <goal>report</goal>
                         </goals>
+                                            <configuration>
+                        <excludes>
+                            <exclude>com/example/Main*</exclude>
+                        </excludes>
+                    </configuration>
                     </execution>
                 </executions>
             </plugin>

@@ -2,6 +2,8 @@ package com.example;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+import java.time.LocalDate;
+
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -19,11 +21,18 @@ public class AikidoTrackerTest {
         assertEquals(90, tracker.getTotalTime());
     }
 
-    @Test
-    void testCheckEligibility() {
-        tracker.addSession(100);
-        assertTrue(tracker.checkEligibility());
-    }
+@Test
+void testCheckEligibilityMonths() {
+    tracker.startDate = LocalDate.now().minusMonths(6);
+    assertTrue(tracker.checkEligibility());
+}
+
+@Test
+void testCheckEligibilityPracticeTime() {
+    tracker.addSession(100);
+    assertTrue(tracker.checkEligibility());
+}
+
 
     @Test
     void testGetTotalTime() {
